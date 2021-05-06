@@ -16,7 +16,7 @@ Router.post("/", async (req, res) => {
 
 
 	const postUserRequest = {
-		url: `authentication/api`,
+		url: `http://authentication/api/users`,
 		method: "POST",
 		data: {
 			username,
@@ -34,27 +34,3 @@ Router.post("/", async (req, res) => {
 });
 
 module.exports = Router;
-
-// curl --location --request POST 'authentication/api/users' \
-// --header 'Content-Type: application/json' \
-// --data-raw '{
-//     "username": "adaaamin",
-//     "password": "123321123",
-//     "email": "aaaa@gmail.com"
-// }'
-
-
-// curl --location --request POST 'http://io/api/users' --header 'Content-Type: application/json' --data-raw '{"username": "admin","password": "123321123","email": "admin@gmail.com"}'
-
-// import requests
-
-// url = "http://io/api/users"
-
-// payload="{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123321123\",\r\n    \"email\": \"admin@gmail.com\"\r\n}"
-// headers = {
-//   'Content-Type': 'application/json'
-// }
-
-// response = requests.request("POST", url, headers=headers, data=payload)
-
-// print(response.text)
