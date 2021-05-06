@@ -13,7 +13,7 @@ services:
         APP_DEBUG: "True"
         APP_PORT: 5001
     depends_on:
-        - io
+        - io 
     networks:
         - frontend
         - backend
