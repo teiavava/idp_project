@@ -1,7 +1,7 @@
 import datetime
 
 from db import db
-from mongoengine import Document, StringField, EmailField, BooleanField, ListField
+from mongoengine import StringField, EmailField, BooleanField, ListField
 
 class User(db.Document):
     id = StringField(primary_key=True)
