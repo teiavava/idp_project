@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   gateway-service:
     build: ./ApiGatewayMicroservice
@@ -25,6 +26,7 @@ services:
     networks:
         - gate
         - authentication
+
   io:
     build:
       context: IO
@@ -37,8 +39,27 @@ services:
       NODE_ENV: development
       APP_ENV: "prod"
       APP_DEBUG: "True"
+      # MONGODB_DATABASE: db
+      # MONGODB_HOSTNAME: mongodb
+      # MONGODB_PORT: 27017
+    # env_file:
+    #   - .env
+    # depends_on:
+    #   - mongodb
     networks:
       - authentication
+      - database
+
+  # mongodb:
+  #   image: mongo:3.6.1
+  #   container_name: mongodb
+  #   restart: unless-stopped
+  #   environment:
+  #     MONGO_INITDB_DATABASE: db
+  #   volumes:
+  #     - './data:/data/db'
+  #   networks:
+  #     - database
 
   # nginx:
   #   build: ./nginx
@@ -56,3 +77,5 @@ services:
 networks:
   gate:
   authentication:
+  database:
+    driver: bridge

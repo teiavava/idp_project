@@ -5,7 +5,6 @@ const sendRequest = async (options) => {
         const { data } = await axios(options);
         return data;
     } catch (error) {
-
         throw error;
     }
 }

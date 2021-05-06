@@ -22,7 +22,7 @@ from security.security import (
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/io/*": {"origins": "*"}})
 
 app.secret_key = 'hiiamyoursecret'
 
@@ -39,10 +39,16 @@ app.config['MONGODB_SETTINGS'] = [
     }
 ]
 
+# app.config['MONGODB_SETTINGS'] = {
+#     'db': 'db',
+#     'host': 'mongodb',
+#     'port': 27017
+# }
+
 initialize_db(app)
 
 
-@app.route('/api/health')
+@app.route('/io/health')
 # @jwt_required()
 def health_check():
     return {'message': 'Healthy'}, HTTPStatus.OK
@@ -53,7 +59,7 @@ def health_check():
 # #################################################################################################
 
 
-@app.route('/api/users/<id>', methods=['GET'])
+@app.route('/io/users/<id>', methods=['GET'])
 @jwt_required()
 def get_user(id):
     if is_token_stolen(id):
@@ -61,7 +67,7 @@ def get_user(id):
     return routes.user_routes.get_user(id)
 
 
-@app.route('/api/users', methods=['GET'])
+@app.route('/io/users', methods=['GET'])
 @jwt_required()
 # @check_admin_credentials
 def get_users():

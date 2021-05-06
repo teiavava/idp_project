@@ -49,7 +49,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123321123\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"teia1234\",\r\n    \"email\": \"teia@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -139,7 +139,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"123321123\",\r\n    \"role\": \"USER\",\r\n    \"cash\": 10\r\n}",
+							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"123321123\",\r\n    \"email\": \"sasj@sjav.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -147,7 +147,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/users/2",
+							"raw": "http://{{ip}}:{{port}}/api/users/0",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -156,7 +156,7 @@
 							"path": [
 								"api",
 								"users",
-								"2"
+								"0"
 							]
 						}
 					},

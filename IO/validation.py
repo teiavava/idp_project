@@ -5,7 +5,7 @@ from coolname import generate_slug
 from utils import (user_email_exists, user_exists, user_id_exists)
 
 email_regex = r'^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
-password_regex = r'[A-Za-z0-9@#_*!.,/$%^&+=]{8,}'
+password_regex = r'[A-Za-z0-9@#_*!.,/$%^&+=]{4,}'
 
 # #################################################################################################
 # USER

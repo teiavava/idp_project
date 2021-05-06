@@ -40,9 +40,6 @@ def login_user():
         return str({'error': 'Something went wrong with the authentication service.'}), HTTPStatus.SERVICE_UNAVAILABLE
 
     return {
-        'username': user.name,
-        'password': password,
-        'email': user.email,
         '_id': user.id,
         'access_token': access_token}, HTTPStatus.CREATED
 
@@ -71,9 +68,6 @@ def add_user():
         return str({'error': 'Something went wrong with the authentication service.'}), HTTPStatus.SERVICE_UNAVAILABLE
 
     return {
-        'username': user.name,
-        'password': password,
-        'email': user.email,
         '_id': user.id,
         'access_token': access_token}, HTTPStatus.CREATED
 
