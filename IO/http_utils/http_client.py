@@ -8,7 +8,7 @@ import requests
 class Client():
     @staticmethod
     def generate_auth_token(username, password):
-        url = 'http://localhost:5000/auth'
+        url = 'http://localhost:80/auth'
 
         payload = "{\"username\": \"" + username +  "\", \"password\": \"" + password + "\"}"
 
