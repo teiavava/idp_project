@@ -1,0 +1,53 @@
+version: '3'
+services:
+  authentication:
+    build:
+        context: Authentication
+        dockerfile: Dockerfile
+    command: python -u app.py
+    container_name: authentication
+    image: flask
+    restart: unless-stopped
+    environment:
+        APP_ENV: "prod"
+        APP_DEBUG: "True"
+        APP_PORT: 5001
+    depends_on:
+        - io
+    networks:
+        - frontend
+        - backend
+  io:
+    build:
+      context: IO
+      dockerfile: Dockerfile
+    command: python -u app.py
+    container_name: io
+    image: flask
+    restart: unless-stopped
+    environment:
+      APP_ENV: "prod"
+      APP_DEBUG: "True"
+      APP_PORT: 5000
+    networks:
+      - frontend
+      - backend
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - "~/container_logs/nginx/log:/var/log/nginx"
+    depends_on:
+      - authentication
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
