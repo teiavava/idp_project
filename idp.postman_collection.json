@@ -1,0 +1,548 @@
+{
+	"info": {
+		"_postman_id": "440e90f2-5945-47c1-9402-53235833468b",
+		"name": "idp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get_users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123321123\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user_id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQ3OTA0ODcsImlhdCI6MTYxNDc4Njg4NywibmJmIjoxNjE0Nzg2ODg3LCJpZGVudGl0eSI6IjE1ODg5MTg2ZGYzZTRiYTk4ZWNkMDcxNDQyMmQzNzRiIn0.EncbND_ycnHsyyTEZKWiRB5QIfOsyoQjKqX8By58u8w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users/1",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users/2",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put_user_id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQ3Nzg2MzcsImlhdCI6MTYxNDc3NTAzNywibmJmIjoxNjE0Nzc1MDM3LCJpZGVudGl0eSI6Njh9.l6qDiawkPUqOXOsknL6CUljcKfclkWyxnA2MwC8jiPM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"123321123\",\r\n    \"role\": \"USER\",\r\n    \"cash\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users/2",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login_user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"manager\",\r\n    \"password\": \"123321123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users/login",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "get_phones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJSb2xlIjoiYWRtaW4iLCJpYXQiOjE2MTk1MzQ1MTgsImF1ZCI6InVzZXJiYXNlIiwiaXNzIjoibW9kZXJhdG9yIiwic3ViIjoiUHJvamVjdCB0b2tlbiJ9.lRyQZa21eB8jN1jbhdhXuMweTHXHyiKIJKwpHEdlj6w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/admin",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_phone",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInVzZXJSb2xlIjoiYWRtaW4iLCJpYXQiOjE2MTk1MzQ1MTgsImF1ZCI6InVzZXJiYXNlIiwiaXNzIjoibW9kZXJhdG9yIiwic3ViIjoiUHJvamVjdCB0b2tlbiJ9.lRyQZa21eB8jN1jbhdhXuMweTHXHyiKIJKwpHEdlj6w"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bike_name\": \"bike1\",\r\n    \"price\": 10000,\r\n    \"stock\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/admin",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_phone_id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQ3OTA0ODcsImlhdCI6MTYxNDc4Njg4NywibmJmIjoxNjE0Nzg2ODg3LCJpZGVudGl0eSI6IjE1ODg5MTg2ZGYzZTRiYTk4ZWNkMDcxNDQyMmQzNzRiIn0.EncbND_ycnHsyyTEZKWiRB5QIfOsyoQjKqX8By58u8w"
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/phone/1",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"phone",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_phone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/bikes/2",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"bikes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "put_phone_id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQ3Nzg2MzcsImlhdCI6MTYxNDc3NTAzNywibmJmIjoxNjE0Nzc1MDM3LCJpZGVudGl0eSI6Njh9.l6qDiawkPUqOXOsknL6CUljcKfclkWyxnA2MwC8jiPM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"123321123\",\r\n    \"role\": \"USER\",\r\n    \"cash\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users/2",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "phones",
+			"item": [
+				{
+					"name": "get_phones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/bikes",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_phone",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/bikes/2",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"bikes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy_phone_id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQ3Nzg2MzcsImlhdCI6MTYxNDc3NTAzNywibmJmIjoxNjE0Nzc1MDM3LCJpZGVudGl0eSI6Njh9.l6qDiawkPUqOXOsknL6CUljcKfclkWyxnA2MwC8jiPM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"teia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/bikes/2",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"bikes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "headerPrefix",
+				"value": "jwt",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ip",
+			"value": ""
+		},
+		{
+			"key": "port",
+			"value": ""
+		}
+	]
+}
