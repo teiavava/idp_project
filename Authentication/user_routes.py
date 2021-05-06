@@ -32,7 +32,7 @@ def add_user():
     body = request.get_json()
 
     ret = requests.request("POST",
-                           "http://localhost:5000/io/users",
+                           "http://io/api/users",
                            headers={'Content-Type': 'application/json'},
                            data=str(body).replace('\'', '\"'))
 

@@ -5,9 +5,10 @@ services:
     ports:
         - 3000:80
     environment:
-      USERS_SERVICE_API_ROUTE: users-service/api
+      USERS_SERVICE_API_ROUTE: authentication/api/users
     networks:
         - gate
+
   authentication:
     build:
       context: Authentication

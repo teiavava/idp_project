@@ -22,7 +22,7 @@ from security.security import (
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/io/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 app.secret_key = 'hiiamyoursecret'
 
@@ -42,7 +42,7 @@ app.config['MONGODB_SETTINGS'] = [
 initialize_db(app)
 
 
-@app.route('/io/health')
+@app.route('/api/health')
 # @jwt_required()
 def health_check():
     return {'message': 'Healthy'}, HTTPStatus.OK
@@ -53,7 +53,7 @@ def health_check():
 # #################################################################################################
 
 
-@app.route('/io/users/<id>', methods=['GET'])
+@app.route('/api/users/<id>', methods=['GET'])
 @jwt_required()
 def get_user(id):
     if is_token_stolen(id):
@@ -61,7 +61,7 @@ def get_user(id):
     return routes.user_routes.get_user(id)
 
 
-@app.route('/io/users', methods=['GET'])
+@app.route('/api/users', methods=['GET'])
 @jwt_required()
 # @check_admin_credentials
 def get_users():
@@ -71,17 +71,17 @@ def get_users():
     return routes.user_routes.get_users()
 
 
-@app.route('/io/users/login', methods=['POST'])
+@app.route('/api/users/login', methods=['POST'])
 def login_user():
     return routes.user_routes.login_user()
 
 
-@app.route('/io/users', methods=['POST'])
+@app.route('/api/users', methods=['POST'])
 def add_user():
     return routes.user_routes.add_user()
 
 
-@app.route('/io/users/<id>', methods=['PUT'])
+@app.route('/api/users/<id>', methods=['PUT'])
 @jwt_required()
 def update_user(id):
     if is_token_stolen(id):
@@ -90,7 +90,7 @@ def update_user(id):
     return routes.user_routes.update_user(id)
 
 
-@app.route('/io/users/<id>', methods=['DELETE'])
+@app.route('/api/users/<id>', methods=['DELETE'])
 @jwt_required()
 def delete_user(id):
     if is_token_stolen(id):

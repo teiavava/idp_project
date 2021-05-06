@@ -39,7 +39,12 @@ def login_user():
     if access_token is None:
         return str({'error': 'Something went wrong with the authentication service.'}), HTTPStatus.SERVICE_UNAVAILABLE
 
-    return user, HTTPStatus.CREATED
+    return {
+        'username': user.name,
+        'password': password,
+        'email': user.email,
+        '_id': user.id,
+        'access_token': access_token}, HTTPStatus.CREATED
 
 
 def add_user():
@@ -65,7 +70,12 @@ def add_user():
     if access_token is None:
         return str({'error': 'Something went wrong with the authentication service.'}), HTTPStatus.SERVICE_UNAVAILABLE
 
-    return user, HTTPStatus.CREATED
+    return {
+        'username': user.name,
+        'password': password,
+        'email': user.email,
+        '_id': user.id,
+        'access_token': access_token}, HTTPStatus.CREATED
 
 
 def get_user(id):
