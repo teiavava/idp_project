@@ -12,19 +12,19 @@ import user_routes
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 app.secret_key = 'hiiamyoursecret'
-
-
-@app.route('/api/users/<id>', methods=['GET'])
-def get_user(id):
-    return user_routes.get_user(id)
 
 
 @app.route('/api/users', methods=['GET'])
 def get_users():
     return user_routes.get_users()
+
+
+@app.route('/api/users/<id>', methods=['GET'])
+def get_user(id):
+    return user_routes.get_user(id)
 
 
 @app.route('/api/users/login', methods=['POST'])

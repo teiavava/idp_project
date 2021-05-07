@@ -6,9 +6,11 @@ const {
 
 Router.get("/", async (req, res) => {
 	console.info(`Forwarding request for get users`);
+	console.info(`http://${process.env.USERS_SERVICE_API_ROUTE}`);
 
 	const getUsersRequest = {
 		url: `http://${process.env.USERS_SERVICE_API_ROUTE}`,
+		headers: req.headers
 	};
 
 	const users = await sendRequest(getUsersRequest);
@@ -25,6 +27,7 @@ Router.get("/:id", async (req, res) => {
 
 	const getUserIdRequest = {
 		url: `http://${process.env.USERS_SERVICE_API_ROUTE}/${id}`,
+		headers: req.headers
 	};
 
 	const user = await sendRequest(getUserIdRequest);
@@ -53,6 +56,7 @@ Router.put("/:id", async (req, res) => {
 			password,
 			email
 		},
+		headers: req.headers
 	};
 
 	const user = await sendRequest(putUserRequest);
@@ -99,7 +103,7 @@ Router.post("/", async (req, res) => {
 			password,
 			email
 		},
-		'headers': {'Content-Type': 'application/json'}
+		headers: {'Content-Type': 'application/json'}
 	};
 
 	const user = await sendRequest(postUserRequest);
@@ -116,14 +120,13 @@ Router.delete("/:id", async (req, res) => {
 
 	const deleteUserRequest = {
 		url: `http://${process.env.USERS_SERVICE_API_ROUTE}/${id}`,
-		method: "DELETE"
+		method: "DELETE",
+		headers: req.headers
 	};
 
 	const resId = await sendRequest(deleteUserRequest);
 
-	res.json({ 
-		resId
-	});
+	res.json(resId);
 });
 
 module.exports = Router;

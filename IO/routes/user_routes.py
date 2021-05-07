@@ -60,6 +60,13 @@ def add_user():
     password = body["password"]
     del body["password"]
     body["password"] = encode_password(password)
+
+    if not body.get("role"):
+        body["role"] = "user"
+
+    if not body.get("cash"):
+        body["cash"] = "0"
+
     user = User(**body).save()
 
     access_token = Client.generate_auth_token(username=user.name,
@@ -81,6 +88,8 @@ def get_user(id):
 def update_user(id):
     body = request.get_json()
     resp = check_user_put(body, id)
+    body['name'] = body.get('username')
+    del body['username']
 
     if resp:
         return resp
