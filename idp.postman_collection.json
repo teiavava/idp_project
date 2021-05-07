@@ -58,7 +58,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"user12\",\r\n    \"password\": \"user1\",\r\n    \"email\": \"user12@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"user111\",\r\n    \"password\": \"user111\",\r\n    \"email\": \"user111@gmail.com\",\r\n    \"cash\": 60\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -279,7 +279,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"bike_name\": \"bike1\",\r\n    \"price\": 10000,\r\n    \"stock\": 10\r\n}",
+							"raw": "{\r\n    \"name\": \"phone1\",\r\n    \"price\": 10000,\r\n    \"stock\": 10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -369,7 +369,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"123321123\",\r\n    \"role\": \"USER\",\r\n    \"cash\": 10\r\n}",
+							"raw": "{\r\n    \"name\": \"phone111\",\r\n    \"price\": 10000,\r\n    \"stock\": 10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -377,7 +377,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/users/2",
+							"raw": "http://{{ip}}:{{port}}/api/admin/9bca74635bcd45aba08f06e131439a46",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -385,8 +385,8 @@
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"users",
-								"2"
+								"admin",
+								"9bca74635bcd45aba08f06e131439a46"
 							]
 						}
 					},
@@ -430,7 +430,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/bikes",
+							"raw": "http://{{ip}}:{{port}}/api/phones",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -438,7 +438,7 @@
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"bikes"
+								"phones"
 							]
 						}
 					},
@@ -457,7 +457,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/bikes/2",
+							"raw": "http://{{ip}}:{{port}}/api/phones/2",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -465,7 +465,7 @@
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"bikes",
+								"phones",
 								"2"
 							]
 						}
@@ -485,7 +485,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"teia\"\r\n}",
+							"raw": "{\r\n    \"username\": \"user\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -493,7 +493,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/bikes/2",
+							"raw": "http://{{ip}}:{{port}}/api/phones/2",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -501,7 +501,7 @@
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"bikes",
+								"phones",
 								"2"
 							]
 						}

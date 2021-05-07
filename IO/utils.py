@@ -1,4 +1,4 @@
-from models.user import User
+from models.phones import Phone
 from http import HTTPStatus
 import uuid
 import datetime
@@ -34,6 +34,8 @@ Returns: bool
 def user_id_exists(_id):
     return len(User.objects.filter(id=_id)) != 0
 
+def phone_id_exists(_id):
+    return len(Phone.objects.filter(id=_id)) != 0
 
 def user_email_exists(email):
     return len(User.objects.filter(email=email)) != 0

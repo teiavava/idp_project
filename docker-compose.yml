@@ -7,8 +7,25 @@ services:
         - 3000:80
     environment:
       USERS_SERVICE_API_ROUTE: authentication/api/users
+      ADMIN_SERVICE_API_ROUTE: admin/api/phones
+    networks:
+      - gate
+
+  admin:
+    build:
+      context: Admin
+      dockerfile: Dockerfile
+    command: python -u app.py
+    container_name: admin
+    image: flask
+    restart: unless-stopped
+    environment:
+        APP_ENV: "prod"
+        APP_DEBUG: "True"
+        NODE_ENV: development
     networks:
         - gate
+        - admin
 
   authentication:
     build:
@@ -21,12 +38,10 @@ services:
     environment:
         APP_ENV: "prod"
         APP_DEBUG: "True"
-        IO_SERVICE_API_ROUTE: io-service/api
         NODE_ENV: development
     networks:
         - gate
         - authentication
-
   io:
     build:
       context: IO
@@ -49,6 +64,7 @@ services:
     networks:
       - authentication
       - database
+      - admin
 
   # mongodb:
   #   image: mongo:3.6.1
@@ -77,5 +93,6 @@ services:
 networks:
   gate:
   authentication:
+  admin:
   database:
     driver: bridge

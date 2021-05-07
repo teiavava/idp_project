@@ -9,7 +9,6 @@ from flask_cors import CORS
 
 import user_routes
 
-
 app = Flask(__name__)
 
 CORS(app, resources={r"/api/*": {"origins": "*"}})
