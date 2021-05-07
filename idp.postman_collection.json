@@ -58,7 +58,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"user111\",\r\n    \"password\": \"user111\",\r\n    \"email\": \"user111@gmail.com\",\r\n    \"cash\": 60\r\n}",
+							"raw": "{\r\n    \"username\": \"user1111\",\r\n    \"password\": \"user1111\",\r\n    \"email\": \"user1111@gmail.com\",\r\n    \"cash\": 60\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -94,7 +94,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"manager\",\r\n    \"password\": \"123321123\"\r\n}",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -157,7 +157,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/users/2",
+							"raw": "http://{{ip}}:{{port}}/api/users/8d63029fe9a444fd949cc5cdc89d6690",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -166,7 +166,7 @@
 							"path": [
 								"api",
 								"users",
-								"2"
+								"8d63029fe9a444fd949cc5cdc89d6690"
 							]
 						}
 					},
@@ -185,7 +185,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"123321123\",\r\n    \"email\": \"sasj@sjav.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -193,7 +193,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/users/0",
+							"raw": "http://{{ip}}:{{port}}/api/users/8d63029fe9a444fd949cc5cdc89d6690",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -202,7 +202,7 @@
 							"path": [
 								"api",
 								"users",
-								"0"
+								"8d63029fe9a444fd949cc5cdc89d6690"
 							]
 						}
 					},
@@ -220,7 +220,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/users/1",
+							"raw": "http://{{ip}}:{{port}}/api/users/d5485a3878204b8fbde13939d16f3ef6",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -229,7 +229,7 @@
 							"path": [
 								"api",
 								"users",
-								"1"
+								"d5485a3878204b8fbde13939d16f3ef6"
 							]
 						}
 					},
@@ -279,7 +279,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"phone1\",\r\n    \"price\": 10000,\r\n    \"stock\": 10\r\n}",
+							"raw": "{\r\n    \"name\": \"phone1234\",\r\n    \"price\": 10000,\r\n    \"stock\": 10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -313,7 +313,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/phone/1",
+							"raw": "http://{{ip}}:{{port}}/api/admin/1",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -321,7 +321,7 @@
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"phone",
+								"admin",
 								"1"
 							]
 						}
@@ -341,7 +341,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/bikes/2",
+							"raw": "http://{{ip}}:{{port}}/api/admin/9bca74635bcd45aba08f06e131439a46",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -349,8 +349,8 @@
 							"port": "{{port}}",
 							"path": [
 								"api",
-								"bikes",
-								"2"
+								"admin",
+								"9bca74635bcd45aba08f06e131439a46"
 							]
 						}
 					},

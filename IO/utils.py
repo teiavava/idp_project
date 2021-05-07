@@ -1,4 +1,5 @@
 from models.phones import Phone
+from models.user import User
 from http import HTTPStatus
 import uuid
 import datetime
