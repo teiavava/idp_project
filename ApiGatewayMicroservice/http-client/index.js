@@ -6,10 +6,18 @@ const sendRequest = async (options) => {
         return { message: data,
                  status: 200};
     } catch (error) {
-        return {
-            message: JSON.parse(error.response.data.split('\'').join('\"')),
-            status: error.response.status
-        };
+        try {
+            return {
+                message: JSON.parse(error.response.data.split('\'').join('\"')),
+                status: error.response.status
+            };
+        }
+        catch {
+            return {
+                message: error.response.data,
+                status: error.response.status
+            };
+        }
     }
 }
 
