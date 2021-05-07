@@ -3,7 +3,7 @@ import os
 from http import HTTPStatus
 import requests
 from flask import Response, request, jsonify
-
+from validation import check_user_post, check_user_put
 sys.path.append('..\\')
 
 
@@ -18,8 +18,6 @@ def get_users():
 
 def login_user():
     body = request.get_json()
-    username = body.get('username')
-    password = body.get('password')
 
     ret = requests.request("POST",
                            "http://localhost:5000/io/users/login",
@@ -27,6 +25,7 @@ def login_user():
                            data=str(body).replace('\'', '\"'))
 
     return ret.json(), ret.status_code
+
 
 def add_user():
     body = request.get_json()
@@ -57,6 +56,7 @@ def update_user(id):
                            data=str(body).replace('\'', '\"'))
 
     return ret.json(), ret.status_code
+
 
 def delete_user(id):
     ret = requests.request("DELETE",

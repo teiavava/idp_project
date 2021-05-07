@@ -41,7 +41,9 @@ Router.put("/:id", async (req, res) => {
 	const { 
 		username,
 		password,
-		email
+		email,
+		cash,
+		role
 	} = req.body;
 
 	const { 
@@ -56,7 +58,9 @@ Router.put("/:id", async (req, res) => {
 		data: {
 			username,
 			password,
-			email
+			email,
+			cash,
+			role
 		},
 		headers: req.headers
 	};
@@ -83,7 +87,6 @@ Router.post("/login", async (req, res) => {
 			password
 		}
 	};
-
 	const response = await sendRequest(loginUserRequest);
 
 	res.status(response.status);

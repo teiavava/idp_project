@@ -46,6 +46,7 @@ def update_phone(id):
 
     return ret.json(), ret.status_code
 
+
 def delete_phone(id):
     ret = requests.request("DELETE",
                            "http://io/api/phones/" + str(id),

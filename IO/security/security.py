@@ -27,7 +27,6 @@ def is_not_admin():
         return {"error": "You must provide the admin authorization token."}, HTTPStatus.UNAUTHORIZED
 
 
-
 def is_token_stolen(id_user):
     if not current_identity.id == id_user:
         return True

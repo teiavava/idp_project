@@ -68,7 +68,6 @@ def get_user(id):
 
 @app.route('/api/users', methods=['GET'])
 @jwt_required()
-# @check_admin_credentials
 def get_users():
     ret = is_not_admin()
     if ret:
@@ -146,6 +145,13 @@ def delete_phone(id):
     if ret:
         return ret
     return routes.phone_routes.delete_phone(id)
+
+
+@app.route('/api/phones/buy/<id>', methods=['PUT'])
+@jwt_required()
+def buy_phone(id):
+    return routes.phone_routes.buy_phone(id)
+
 
 if __name__ == '__main__':
     ENVIRONMENT_DEBUG = os.environ.get("APP_DEBUG", True)

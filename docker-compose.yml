@@ -8,6 +8,7 @@ services:
     environment:
       USERS_SERVICE_API_ROUTE: authentication/api/users
       ADMIN_SERVICE_API_ROUTE: admin/api/phones
+      PHONES_SERVICE_API_ROUTE: phones/api/phones
     networks:
       - gate
 
@@ -42,6 +43,23 @@ services:
     networks:
         - gate
         - authentication
+
+  phones:
+    build:
+      context: Phones
+      dockerfile: Dockerfile
+    command: python -u app.py
+    container_name: phones
+    image: flask
+    restart: unless-stopped
+    environment:
+        APP_ENV: "prod"
+        APP_DEBUG: "True"
+        NODE_ENV: development
+    networks:
+        - gate
+        - phones
+
   io:
     build:
       context: IO
@@ -65,6 +83,7 @@ services:
       - authentication
       - database
       - admin
+      - phones
 
   # mongodb:
   #   image: mongo:3.6.1
@@ -77,22 +96,10 @@ services:
   #   networks:
   #     - database
 
-  # nginx:
-  #   build: ./nginx
-  #   container_name: nginx
-  #   restart: always
-  #   ports:
-  #     - 80:80
-  #   volumes:
-  #     - "~/container_logs/nginx/log:/var/log/nginx"
-  #   depends_on:
-  #     - authentication
-  #   networks:
-  #     - frontend
-
 networks:
   gate:
   authentication:
   admin:
+  phones:
   database:
     driver: bridge
