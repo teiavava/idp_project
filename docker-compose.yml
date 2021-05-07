@@ -24,8 +24,8 @@ services:
         APP_DEBUG: "True"
         NODE_ENV: development
     networks:
-        - gate
-        - admin
+      - gate
+      - admin
 
   authentication:
     build:
