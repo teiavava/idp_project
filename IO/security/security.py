@@ -19,12 +19,11 @@ def identity(payload):
 
 
 def encode_password(password):
-    # import ipdb; ipdb.set_trace()
     return str(hashlib.md5((password + 'IoTIC Really Rocks!!!!').encode()).hexdigest())
 
 
 def is_not_admin():
-    if not current_identity.name == 'admin' or not current_identity.password == encode_password('admin'):
+    if not current_identity.role == 'admin':
         return {"error": "You must provide the admin authorization token."}, HTTPStatus.UNAUTHORIZED
 
 
