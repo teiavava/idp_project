@@ -19,7 +19,7 @@ def identity(payload):
 
 
 def encode_password(password):
-    return str(hashlib.md5((password + 'IoTIC Really Rocks!!!!').encode()).hexdigest())
+    return str(hashlib.md5((password + 'idp_proj').encode()).hexdigest())
 
 
 def is_not_admin():

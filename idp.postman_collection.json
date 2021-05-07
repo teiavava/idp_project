@@ -9,17 +9,26 @@
 			"name": "users",
 			"item": [
 				{
-					"name": "get_users",
+					"name": "post_admin",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "",
-								"value": "",
 								"type": "text",
+								"value": "",
 								"disabled": true
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://{{ip}}:{{port}}/api/users",
 							"protocol": "http",
@@ -49,7 +58,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"teia\",\r\n    \"password\": \"teia1234\",\r\n    \"email\": \"teia@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"username\": \"user12\",\r\n    \"password\": \"user1\",\r\n    \"email\": \"user12@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -72,18 +81,28 @@
 					"response": []
 				},
 				{
-					"name": "delete_user_id",
+					"name": "login_user",
 					"request": {
-						"method": "DELETE",
+						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQ3OTA0ODcsImlhdCI6MTYxNDc4Njg4NywibmJmIjoxNjE0Nzg2ODg3LCJpZGVudGl0eSI6IjE1ODg5MTg2ZGYzZTRiYTk4ZWNkMDcxNDQyMmQzNzRiIn0.EncbND_ycnHsyyTEZKWiRB5QIfOsyoQjKqX8By58u8w",
-								"type": "text"
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"manager\",\r\n    \"password\": \"123321123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/users/1",
+							"raw": "http://{{ip}}:{{port}}/api/users/login",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -92,7 +111,34 @@
 							"path": [
 								"api",
 								"users",
-								"1"
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://{{ip}}:{{port}}/api/users",
+							"protocol": "http",
+							"host": [
+								"{{ip}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"users"
 							]
 						}
 					},
@@ -163,28 +209,18 @@
 					"response": []
 				},
 				{
-					"name": "login_user",
+					"name": "delete_user_id",
 					"request": {
-						"method": "POST",
+						"method": "DELETE",
 						"header": [
 							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQ3OTA0ODcsImlhdCI6MTYxNDc4Njg4NywibmJmIjoxNjE0Nzg2ODg3LCJpZGVudGl0eSI6IjE1ODg5MTg2ZGYzZTRiYTk4ZWNkMDcxNDQyMmQzNzRiIn0.EncbND_ycnHsyyTEZKWiRB5QIfOsyoQjKqX8By58u8w",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"manager\",\r\n    \"password\": \"123321123\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://{{ip}}:{{port}}/api/users/login",
+							"raw": "http://{{ip}}:{{port}}/api/users/1",
 							"protocol": "http",
 							"host": [
 								"{{ip}}"
@@ -193,7 +229,7 @@
 							"path": [
 								"api",
 								"users",
-								"login"
+								"1"
 							]
 						}
 					},

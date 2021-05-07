@@ -34,8 +34,8 @@ DB_URL = "mongodb+srv://teia:portocala01@clusterteia.esisk.mongodb.net"
 
 app.config['MONGODB_SETTINGS'] = [
     {
-        'ALIAS': 'idp-user-db-alias',
-        'host': DB_URL + "/idp-user"
+        'ALIAS': 'phones-user-db-alias',
+        'host': DB_URL + "/IDP"
     }
 ]
 
@@ -59,7 +59,7 @@ def health_check():
 # #################################################################################################
 
 
-@app.route('/io/users/<id>', methods=['GET'])
+@app.route('/api/users/<id>', methods=['GET'])
 @jwt_required()
 def get_user(id):
     if is_token_stolen(id):
@@ -67,7 +67,7 @@ def get_user(id):
     return routes.user_routes.get_user(id)
 
 
-@app.route('/io/users', methods=['GET'])
+@app.route('/api/users', methods=['GET'])
 @jwt_required()
 # @check_admin_credentials
 def get_users():

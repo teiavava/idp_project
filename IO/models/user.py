@@ -8,7 +8,7 @@ class User(db.Document):
     name = StringField(required=True, unique=True, max_length=50)
     password = StringField(required=True, max_length=50)
     email = EmailField(required=True, unique=True, max_length=50)
-    role = StringField(required=False, max_length=50)
-    cash = FloatField(required=False)
+    role = StringField(required=False, max_length=50, default="user")
+    cash = FloatField(required=False, default=0)
 
-    meta = {'db_alias': 'idp-user-db-alias'}
+    meta = {'db_alias': 'phones-user-db-alias'}

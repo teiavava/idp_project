@@ -61,12 +61,6 @@ def add_user():
     del body["password"]
     body["password"] = encode_password(password)
 
-    if not body.get("role"):
-        body["role"] = "user"
-
-    if not body.get("cash"):
-        body["cash"] = "0"
-
     user = User(**body).save()
 
     access_token = Client.generate_auth_token(username=user.name,
@@ -82,7 +76,7 @@ def add_user():
 def get_user(id):
     user = User.objects.filter(id=id).get(0)
 
-    return user, HTTPStatus.OK
+    return {'user': user}, HTTPStatus.OK
 
 
 def update_user(id):

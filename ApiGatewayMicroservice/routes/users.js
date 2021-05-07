@@ -13,9 +13,10 @@ Router.get("/", async (req, res) => {
 		headers: req.headers
 	};
 
-	const users = await sendRequest(getUsersRequest);
+	const response = await sendRequest(getUsersRequest);
 
-	res.json(users);
+	res.status(response.status);
+	res.json(response.message);
 });
 
 Router.get("/:id", async (req, res) => {
@@ -30,9 +31,10 @@ Router.get("/:id", async (req, res) => {
 		headers: req.headers
 	};
 
-	const user = await sendRequest(getUserIdRequest);
+	const response = await sendRequest(getUserIdRequest);
 
-	res.json(user);
+	res.status(response.status);
+	res.json(response.message);
 });
 
 Router.put("/:id", async (req, res) => {
@@ -59,9 +61,10 @@ Router.put("/:id", async (req, res) => {
 		headers: req.headers
 	};
 
-	const user = await sendRequest(putUserRequest);
+	const response = await sendRequest(putUserRequest);
 
-	res.json(user);
+	res.status(response.status);
+	res.json(response.message);
 });
 
 Router.post("/login", async (req, res) => {
@@ -81,16 +84,19 @@ Router.post("/login", async (req, res) => {
 		}
 	};
 
-	const user = await sendRequest(loginUserRequest);
+	const response = await sendRequest(loginUserRequest);
 
-	res.json(user);
+	res.status(response.status);
+	res.json(response.message);
 });
 
 Router.post("/", async (req, res) => {
-	const { 
+	const {
 		username,
 		password,
-		email
+		email,
+		role,
+		cash
 	} = req.body;
 
 	console.info(`Forwarding request for add user ${username}`);
@@ -101,14 +107,17 @@ Router.post("/", async (req, res) => {
 		data: {
 			username,
 			password,
-			email
+			email,
+			role,
+			cash
 		},
 		headers: {'Content-Type': 'application/json'}
 	};
 
-	const user = await sendRequest(postUserRequest);
+	const response = await sendRequest(postUserRequest);
 
-	res.json(user);
+	res.status(response.status);
+	res.json(response.message);
 });
 
 Router.delete("/:id", async (req, res) => {
@@ -124,9 +133,10 @@ Router.delete("/:id", async (req, res) => {
 		headers: req.headers
 	};
 
-	const resId = await sendRequest(deleteUserRequest);
+	const response = await sendRequest(deleteUserRequest);
 
-	res.json(resId);
+	res.status(response.status);
+	res.json(response.message);
 });
 
 module.exports = Router;
