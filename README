@@ -1,2 +1,0 @@
-MONGOCOMPASS: mongodb+srv://teia:portocala01@clusterteia.esisk.mongodb.net/admin?authSource=admin&replicaSet=atlas-tu0hja-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
-docker-compose up --build
