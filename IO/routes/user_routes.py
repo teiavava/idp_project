@@ -1,3 +1,8 @@
+from validation import check_user_post, check_user_put, check_user_get
+from utils import get_new_id, user_id_exists
+from security.security import encode_password
+from models.user import User
+from http_utils.http_client import Client
 import sys
 import os
 from http import HTTPStatus
@@ -5,12 +10,6 @@ from http import HTTPStatus
 from flask import Response, request, jsonify
 
 sys.path.append('..\\')
-
-from http_utils.http_client import Client
-from models.user import User
-from security.security import encode_password
-from utils import get_new_id, user_id_exists
-from validation import check_user_post, check_user_put
 
 
 def get_users():
@@ -74,6 +73,10 @@ def add_user():
 
 
 def get_user(id):
+    resp = check_user_get(id)
+
+    if resp:
+        return resp
     user = User.objects.filter(id=id).get(0)
 
     return {'user': user}, HTTPStatus.OK

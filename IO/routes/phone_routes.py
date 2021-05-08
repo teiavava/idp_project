@@ -5,7 +5,7 @@ from http_utils.http_client import Client
 import sys
 import os
 from http import HTTPStatus
-from validation import check_phone_post, check_phone_put, check_phone_buy
+from validation import check_phone_post, check_phone_put, check_phone_buy, check_phone_get
 from flask import Response, request, jsonify
 
 sys.path.append('..\\')
@@ -31,6 +31,10 @@ def add_phone():
 
 
 def get_phone(id):
+    resp = check_phone_get(id)
+
+    if resp:
+        return resp
     phone = Phone.objects.filter(id=id).get(0)
 
     return {'phone': phone}, HTTPStatus.OK
