@@ -1,0 +1,25 @@
+_format_version: "2.1"
+
+services:
+  - name: authentication-service
+    url: http://project_authentication-service/api
+    plugins:
+      - name: key-auth
+    routes:
+      - name: authentication-service-route
+        paths:
+          - /api/authentication
+
+  - name: phones-service
+    url: http://project_phones-service/api
+    plugins:
+      - name: key-auth
+    routes:
+      - name: phones-service-route
+        paths:
+          - /api/phones
+
+consumers:
+  - username: lab-student
+    keyauth_credentials:
+      - key: mobylab
