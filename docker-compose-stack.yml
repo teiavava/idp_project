@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  gateway-service:
+    image: teiavava/api-gateway:latest
+    ports:
+      - 3000:80
+    environment:
+      USERS_SERVICE_API_ROUTE: authentication/api/users
+      ADMIN_SERVICE_API_ROUTE: admin/api/phones
+      PHONES_SERVICE_API_ROUTE: phones/api/phones
+      NODE_ENV: development
+    networks:
+      - gate
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 3
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  phones-service:
+    image: teiavava/phones:latest
+    environment:
+      NODE_ENV: development
+    networks:
+      - gate
+      - phones
+
+  authentication-service:
+    image: teiavava/authentication:latest
+    environment:
+      NODE_ENV: development
+    networks:
+      - gate
+      - authentication
+
+  admin-service:
+    image: teiavava/admin:latest
+    environment:
+      NODE_ENV: development
+    networks:
+      - gate
+      - admin
+
+  io-service:
+    image: teiavava/io:latest
+    environment:
+      NODE_ENV: development
+    networks:
+      - phones
+      - authentication
+      - admin
+
+volumes:
+    homework-db:
+
+networks:
+  gate:
+  authentication:
+  phones:
+  admin:

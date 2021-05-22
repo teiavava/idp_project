@@ -3,7 +3,6 @@ import os
 from http import HTTPStatus
 import requests
 from flask import Response, request, jsonify
-from validation import check_user_post, check_user_put
 
 sys.path.append('..\\')
 
