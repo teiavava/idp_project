@@ -7,6 +7,8 @@ sys.path.append('..\\')
 
 
 def get_users():
+    body = request.get_json()
+
     ret = requests.request("GET",
                            "http://localhost:5000/io/users",
                            headers={'Content-Type': 'application/json'},

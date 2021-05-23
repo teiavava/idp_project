@@ -8,6 +8,8 @@ sys.path.append('..\\')
 
 
 def get_phones():
+    body = request.get_json()
+
     ret = requests.request("GET",
                            "http://io/api/phones",
                            headers={'Content-Type': 'application/json'},
