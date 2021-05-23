@@ -6,13 +6,14 @@ from flask import Response, request, jsonify
 
 sys.path.append('..\\')
 
+IO_ROUTE = os.environ.get("IO_ROUTE", 'http://io/api/phones')
 
 def get_phones():
     body = request.get_json()
     header = request.get_data()
 
     ret = requests.request("GET",
-                           "http://io/api/phones",
+                           IO_ROUTE,
                            headers={'Content-Type': 'application/json',
                                     'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
