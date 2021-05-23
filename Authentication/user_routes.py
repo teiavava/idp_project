@@ -7,10 +7,8 @@ sys.path.append('..\\')
 
 
 def get_users():
-    body = request.get_json()
-
     ret = requests.request("GET",
-                           "http://localhost:5000/io/users",
+                           "http://io/api/users",
                            headers={'Content-Type': 'application/json'},
                            data=str(body).replace('\'', '\"'))
 
@@ -21,7 +19,7 @@ def login_user():
     body = request.get_json()
 
     ret = requests.request("POST",
-                           "http://localhost:5000/io/users/login",
+                           "http://io/api/users/login",
                            headers={'Content-Type': 'application/json'},
                            data=str(body).replace('\'', '\"'))
 
@@ -41,7 +39,7 @@ def add_user():
 
 def get_user(id):
     ret = requests.request("GET",
-                           "http://localhost:5000/io/users/" + str(id),
+                           "http://io/api/users/" + str(id),
                            headers={'Content-Type': 'application/json'},
                            data='')
 
@@ -52,7 +50,7 @@ def update_user(id):
     body = request.get_json()
 
     ret = requests.request("PUT",
-                           "http://localhost:5000/io/users/" + str(id),
+                           "http://io/api/users/" + str(id),
                            headers={'Content-Type': 'application/json'},
                            data=str(body).replace('\'', '\"'))
 
@@ -61,7 +59,7 @@ def update_user(id):
 
 def delete_user(id):
     ret = requests.request("DELETE",
-                           "http://localhost:5000/io/users/" + str(id),
+                           "http://io/api/users/" + str(id),
                            headers={'Content-Type': 'application/json'},
                            data='')
 
