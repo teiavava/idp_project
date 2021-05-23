@@ -7,7 +7,6 @@ services:
       - 3001:80
     environment:
       NODE_ENV: development
-      IO_ROUTE: "http://localhost:3003/api"
     networks:
       - gate
       - phones
@@ -34,8 +33,6 @@ services:
 
   io:
     image: io:latest
-    ports:
-      - 3003:80
     environment:
       NODE_ENV: development
     networks:
