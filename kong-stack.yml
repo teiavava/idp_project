@@ -7,7 +7,6 @@ services:
       - 3001:80
     environment:
       NODE_ENV: development
-      IO_URL: http://192.168.0.12:3003/api
     networks:
       - gate
       - phones

@@ -6,15 +6,13 @@ from flask import Response, request, jsonify
 
 sys.path.append('..\\')
 
-# IO_URL = os.environ.get("IO_URL", "http://io/api/phones")
-IO_URL = "http://192.168.0.28:3003/api"
 
 def get_phones():
     body = request.get_json()
     header = request.get_data()
 
     ret = requests.request("GET",
-                           IO_URL,
+                           "http://io/api/phones",
                            headers={'Content-Type': 'application/json',
                                     'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
@@ -24,7 +22,7 @@ def get_phones():
 
 def get_phone(id):
     ret = requests.request("GET",
-                           IO_URL,
+                           "http://io/api/phones/" + str(id),
                            headers={'Content-Type': 'application/json',
                                     'Authorization': request.headers['Authorization']},
                            data='')
@@ -42,7 +40,7 @@ def buy_phone(id):
         return str({'error': 'The username is missing.'}), HTTPStatus.BAD_REQUEST
 
     ret = requests.request("PUT",
-                           IO_URL + str(id),
+                           "http://io/api/phones/buy/" + str(id),
                            headers={'Content-Type': 'application/json',
                                     'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
