@@ -12,7 +12,8 @@ def get_phones():
 
     ret = requests.request("GET",
                            "http://io/api/phones",
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
 
     return ret.json(), ret.status_code
@@ -23,7 +24,8 @@ def add_phone():
 
     ret = requests.request("POST",
                            "http://io/api/phones",
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
 
     return ret.json(), ret.status_code
@@ -32,7 +34,8 @@ def add_phone():
 def get_phone(id):
     ret = requests.request("GET",
                            "http://io/api/phones/" + str(id),
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data='')
 
     return ret.json(), ret.status_code
@@ -43,7 +46,8 @@ def update_phone(id):
 
     ret = requests.request("PUT",
                            "http://io/api/phones/" + str(id),
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
 
     return ret.json(), ret.status_code
@@ -52,7 +56,8 @@ def update_phone(id):
 def delete_phone(id):
     ret = requests.request("DELETE",
                            "http://io/api/phones/" + str(id),
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data='')
 
     return ret.json(), ret.status_code

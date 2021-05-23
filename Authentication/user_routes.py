@@ -11,7 +11,8 @@ def get_users():
 
     ret = requests.request("GET",
                            "http://io/api/users",
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
 
     return ret.json(), ret.status_code
@@ -53,7 +54,8 @@ def update_user(id):
 
     ret = requests.request("PUT",
                            "http://io/api/users/" + str(id),
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data=str(body).replace('\'', '\"'))
 
     return ret.json(), ret.status_code
@@ -62,7 +64,8 @@ def update_user(id):
 def delete_user(id):
     ret = requests.request("DELETE",
                            "http://io/api/users/" + str(id),
-                           headers={'Content-Type': 'application/json'},
+                           headers={'Content-Type': 'application/json',
+                                    'Authorization': request.headers['Authorization']},
                            data='')
 
     return ret.json(), ret.status_code

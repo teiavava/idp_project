@@ -19,3 +19,21 @@ detalii despre acestea, precum si să le adauge în coșul de cumpărături și 
 1. Admin Service
 1. IO Service
 1. Phones Service
+
+
+# Docker Swarm
+
+git clone https://gitlab.com/teiavava/proiect_idp.git
+cd proiect_idp
+chmod +rwx create_images.sh deploy.sh
+
+./create_images.sh
+
+./deploy.sh
+
+# To check the state of the services, please run:
+docker service ls
+
+# To check the logs of a specific service, please run:
+docker service logs idp_{service_name}
+
