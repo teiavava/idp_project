@@ -20,7 +20,7 @@ services:
       restart_policy:
         condition: on-failure
 
-  phones-service:
+  phones:
     image: phones:latest
     environment:
       NODE_ENV: development
@@ -28,7 +28,7 @@ services:
       - gate
       - phones
 
-  authentication-service:
+  authentication:
     image: authentication:latest
     environment:
       NODE_ENV: development
@@ -36,7 +36,7 @@ services:
       - gate
       - authentication
 
-  admin-service:
+  admin:
     image: admin:latest
     environment:
       NODE_ENV: development
@@ -44,7 +44,7 @@ services:
       - gate
       - admin
 
-  io-service:
+  io:
     image: io:latest
     environment:
       NODE_ENV: development

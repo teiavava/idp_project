@@ -155,4 +155,4 @@ def buy_phone(id):
 
 if __name__ == '__main__':
     ENVIRONMENT_DEBUG = os.environ.get("APP_DEBUG", True)
-    app.run(host='0.0.0.0', port=5000, debug=ENVIRONMENT_DEBUG)
+    app.run(host='0.0.0.0', port=80, debug=ENVIRONMENT_DEBUG)
