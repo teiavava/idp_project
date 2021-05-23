@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   gateway-service:
-    image: teiavava/api-gateway:latest
+    image: api-gateway:latest
     ports:
       - 3000:80
     environment:
@@ -21,7 +21,7 @@ services:
         condition: on-failure
 
   phones-service:
-    image: teiavava/phones:latest
+    image: phones:latest
     environment:
       NODE_ENV: development
     networks:
@@ -29,7 +29,7 @@ services:
       - phones
 
   authentication-service:
-    image: teiavava/authentication:latest
+    image: authentication:latest
     environment:
       NODE_ENV: development
     networks:
@@ -37,7 +37,7 @@ services:
       - authentication
 
   admin-service:
-    image: teiavava/admin:latest
+    image: admin:latest
     environment:
       NODE_ENV: development
     networks:
@@ -45,7 +45,7 @@ services:
       - admin
 
   io-service:
-    image: teiavava/io:latest
+    image: io:latest
     environment:
       NODE_ENV: development
     networks:

@@ -5,7 +5,6 @@ from http_utils.http_client import Client
 import sys
 import os
 from http import HTTPStatus
-from validation import check_phone_post, check_phone_put, check_phone_buy, check_phone_get
 from flask import Response, request, jsonify
 
 sys.path.append('..\\')
