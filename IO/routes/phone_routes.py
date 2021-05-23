@@ -17,10 +17,10 @@ def get_phones():
 
 def add_phone():
     body = request.get_json()
-    resp = check_phone_post(body)
+    # resp = check_phone_post(body)
 
-    if resp:
-        return resp
+    # if resp:
+        # return resp
 
     if not body.get('id'):
         body["id"] = get_new_id()
@@ -30,10 +30,10 @@ def add_phone():
 
 
 def get_phone(id):
-    resp = check_phone_get(id)
+    # resp = check_phone_get(id)
 
-    if resp:
-        return resp
+    # if resp:
+        # return resp
     phone = Phone.objects.filter(id=id).get(0)
 
     return {'phone': phone}, HTTPStatus.OK
@@ -41,10 +41,10 @@ def get_phone(id):
 
 def update_phone(id):
     body = request.get_json()
-    resp = check_phone_put(body, id)
+    # resp = check_phone_put(body, id)
 
-    if resp:
-        return resp
+    # if resp:
+        # return resp
 
     Phone.objects.get(id=id).update(**body)
     return 'The phone informations were updated.', HTTPStatus.OK
@@ -62,9 +62,9 @@ def buy_phone(id):
     body = request.get_json()
     username = body.get("username")
 
-    resp = check_phone_buy(body, id)
-    if resp:
-        return resp
+    # resp = check_phone_buy(body, id)
+    # if resp:
+    #     return resp
 
     phone = Phone.objects.filter(id=id).get(0)
     stock = phone.stock
