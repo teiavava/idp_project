@@ -2,20 +2,20 @@ _format_version: "2.1"
 
 services:
   - name: authentication
-    url: http://idp_authentication/api
+    url: http://authentication:3002/api
     plugins:
       - name: key-auth
     routes:
-      - name: authentication-route
+      - name: authentication
         paths:
           - /api/users
 
-  - name: phones-service
-    url: http://idp_phones/api
+  - name: phones
+    url: http://phones:3001/api
     plugins:
       - name: key-auth
     routes:
-      - name: phones-route
+      - name: phones
         paths:
           - /api/phones
 

@@ -4,7 +4,7 @@ services:
   gateway-service:
     build: ./ApiGatewayMicroservice
     ports:
-        - 3000:80
+      - 3000:80
     environment:
       USERS_SERVICE_API_ROUTE: authentication/api/users
       ADMIN_SERVICE_API_ROUTE: admin/api/phones

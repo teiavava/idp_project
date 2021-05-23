@@ -1,0 +1,22 @@
+docker-build-master:
+  # Official docker image.
+  stage: build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+  only:
+    - master
+  tags:
+    - project
+
+deploy-service-master:
+  stage: deploy
+  script:
+    - apk add --update curl
+    - curl -XPOST http:///api/webhooks/4ada31d1-7278-4a38-8457-a8354b10da47
+  only:
+    - master
+  tags:
+    - project

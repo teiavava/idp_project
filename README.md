@@ -37,3 +37,4 @@ docker service ls
 # To check the logs of a specific service, please run:
 docker service logs idp_{service_name}
 
+docker stack deploy port... portainer

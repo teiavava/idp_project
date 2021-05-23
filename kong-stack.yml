@@ -3,6 +3,8 @@ version: "3.8"
 services:
   phones:
     image: phones:latest
+    ports:
+      - 3001:80
     environment:
       NODE_ENV: development
     networks:
@@ -12,6 +14,8 @@ services:
 
   authentication:
     image: authentication:latest
+    ports:
+      - 3002:80
     environment:
       NODE_ENV: development
     networks:
