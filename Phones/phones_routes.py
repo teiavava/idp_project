@@ -7,7 +7,7 @@ from flask import Response, request, jsonify
 sys.path.append('..\\')
 
 # IO_URL = os.environ.get("IO_URL", "http://io/api/phones")
-IO_URL = "http://192.168.0.12:3003/api"
+IO_URL = "http://192.168.0.28:3003/api"
 
 def get_phones():
     body = request.get_json()

@@ -25,11 +25,15 @@ detalii despre acestea, precum si să le adauge în coșul de cumpărături și 
 
 git clone https://gitlab.com/teiavava/proiect_idp.git
 cd proiect_idp
-chmod +rwx create_images.sh deploy.sh
+chmod +rwx create-images.sh deploy.sh deploy-kong.sh
 
-./create_images.sh
+./create-images.sh
 
 ./deploy.sh
+
+OR
+
+./deploy-kong.sh
 
 # To check the state of the services, please run:
 docker service ls
