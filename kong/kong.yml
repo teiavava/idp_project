@@ -1,21 +1,21 @@
 _format_version: "2.1"
 
 services:
-  - name: authentication-service
-    url: http://project_authentication-service/api
+  - name: authentication
+    url: http://authentication/api
     plugins:
       - name: key-auth
     routes:
-      - name: authentication-service-route
+      - name: authentication
         paths:
           - /api/authentication
 
   - name: phones-service
-    url: http://project_phones-service/api
+    url: http://phones/api
     plugins:
       - name: key-auth
     routes:
-      - name: phones-service-route
+      - name: phones
         paths:
           - /api/phones
 
